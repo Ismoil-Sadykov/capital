@@ -150,18 +150,17 @@ export default function AddNewsPage() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="flex-1 cursor-pointer bg-orange-400 text-white py-3 rounded-full font-medium hover:bg-orange-500 transition"
+                            className="flex-1 bg-orange-400 text-white py-3 rounded-full text-sm font-medium hover:bg-orange-500 transition"
                         >
                             {isLoading ? "Сохранение..." : "Сохранить"}
                         </button>
-                        <Link href={"/news"}>
-                            <button className="text-orange-500 font-medium cursor-pointer">
-                                Отмена
-                            </button>
+                        <Link href={"/news"}
+                            className="flex-1 text-center border border-orange-400 text-orange-400 py-3 rounded-full text-sm font-medium">
+                            Отмена
                         </Link>
-                    </div>
-                </form>
             </div>
-        </div>
+        </form>
+            </div >
+        </div >
     );
 }

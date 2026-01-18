@@ -1,5 +1,5 @@
 export type News = {
-  id: number;
+  id: string;
   date: string;
   title: string;
   description: string;
@@ -7,16 +7,16 @@ export type News = {
 };
 
 export type Vacancy = {
-  id: number;
+  id: string;
   experience: string;
   city: string;
   title: string;
   description: string;
-  isHidden: boolean;
+  date: string;
 };
 
 export type Application = {
-  id: number;
+  id: string;
   fullName: string;
   phone: string;
   email: string;

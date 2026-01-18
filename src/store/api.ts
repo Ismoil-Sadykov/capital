@@ -55,6 +55,14 @@ export const api = createApi({
       }),
       invalidatesTags: ["Vacancies"],
     }),
+    addVacancy: builder.mutation<Vacancy, Omit<Vacancy, "id">>({
+      query: (body) => ({
+        url: "/vacancies",
+        method: "POST",
+        data: body,
+      }),
+      invalidatesTags: ["Vacancies"],
+    }),
   }),
 });
 
@@ -66,4 +74,5 @@ export const {
   useAddNewsMutation,
   useDeleteNewsMutation,
   useDeleteVacancyMutation,
+  useAddVacancyMutation,
 } = api;
