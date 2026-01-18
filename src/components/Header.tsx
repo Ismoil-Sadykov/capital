@@ -8,6 +8,7 @@ import { useState } from "react";
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 
 export default function Header() {
@@ -28,7 +29,6 @@ export default function Header() {
     router.push("/");
   };
 
-
   return (
     <header className="w-full border-b border-gray-200">
       <div className="mx-auto max-w-7xl px-6">
@@ -41,19 +41,19 @@ export default function Header() {
               КАПИТАЛ-Т
             </span>
           </div>
-          <nav className="flex items-center gap-8">
-            <button className="flex items-center gap-[10px] active:text-[#FFA900] font-semibold">
+          <nav className="md:flex items-center gap-8 hidden">
+            <Link href={"/news"} className="flex items-center gap-[10px] active:text-[#FFA900] font-semibold">
               <Newspaper />
-              <Link href={"/news"}>Новости</Link>
-            </button>
-            <button className="flex items-center gap-[10px] active:text-[#FFA900] font-semibold">
+              <span>Новости</span>
+            </Link>
+            <Link href={"/vacancy"} className="flex items-center gap-[10px] active:text-[#FFA900] font-semibold">
               <BriefcaseBusiness />
-              <Link href={"/vacancy"}>Вакансии</Link>
-            </button>
-            <button className="flex items-center gap-[10px] active:text-[#FFA900] font-semibold">
+              <span>Вакансии</span>
+            </Link>
+            <Link href={"/report"} className="flex items-center gap-[10px] active:text-[#FFA900] font-semibold">
               <TicketsPlane />
-              <Link href={"/report"}>Заявки</Link>
-            </button>
+              <span>Заявки</span>
+            </Link>
           </nav>
           <div className="cursor-pointer transition">
             <Tooltip title="Account settings">
@@ -119,7 +119,6 @@ export default function Header() {
               </MenuItem>
             </Menu>
           </div>
-
         </div>
       </div>
     </header >

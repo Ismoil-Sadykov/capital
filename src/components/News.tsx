@@ -1,21 +1,35 @@
 'use client'
 
 import Image from "next/image"
-import { useGetPostsQuery } from "../store/api"
+import { useDeleteNewsMutation, useGetPostsQuery } from "../store/api"
 import { EyeOff, Newspaper, Pencil, Trash2 } from "lucide-react"
 import { PostCardSkeleton } from "./Loading"
+import toast from "react-hot-toast"
 
 
 export default function News() {
     const { data, isLoading } = useGetPostsQuery()
+    const [deleteNews] = useDeleteNewsMutation();
+
+    const handleDelete = async (id: number) => {
+        if (!confirm("Вы уверены, что хотите удалить новость?")) return;
+
+        try {
+            await deleteNews(id).unwrap();
+            toast.success("Новость удалена ✅");
+        } catch {
+            toast.error("Ошибка при удалении");
+        }
+    };
 
     const showSkeleton = isLoading && !data
+    const SKELETON_COUNT = 6;
 
     return (
         <div>
             <div className="flex gap-[28px] justify-between p-5 flex-wrap">
                 {showSkeleton
-                    ? Array.from({ length }).map((_, i) => (
+                    ? Array.from({ length: SKELETON_COUNT }).map((_, i) => (
                         <PostCardSkeleton key={i} />
                     ))
                     : data?.map((user) => {
@@ -44,7 +58,8 @@ export default function News() {
                                             <span className="text-lg">›</span>
                                         </button>
                                         <div className="flex gap-2">
-                                            <button className="h-9 w-9 rounded-full border flex items-center justify-center text-gray-500">
+                                            <button onClick={() => handleDelete(user.id)}
+                                                className="cursor-pointer h-9 w-9 rounded-full border flex items-center justify-center text-gray-500">
                                                 <Trash2 size={18} />
                                             </button>
                                             <button className="h-9 w-9 rounded-full border flex items-center justify-center text-orange-500">

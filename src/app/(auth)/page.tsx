@@ -4,37 +4,47 @@ import Image from "next/image";
 import logo from '../../images/image 6.png'
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-
+import toast from 'react-hot-toast';
 
 export default function Page() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
 
-    const res = await fetch(
-      `http://localhost:3001/users?phoneNumber=${phone}&password=${password}`
-    );
+    if (!phone || !password) {
+      toast.error("Заполните телефон и пароль❗");
+      return;
+    }
 
-    const data = await res.json();
+    setLoading(true);
 
-    if (data.length > 0) {
-      localStorage.setItem("user", JSON.stringify(data[0]));
-      router.push("/news");
-    } else {
-      setError("Неверный телефон или пароль");
+    try {
+      const res = await fetch(
+        `http://localhost:3001/users?phoneNumber=${phone}&password=${password}`
+      );
+
+      const data = await res.json();
+
+      if (data.length > 0) {
+        localStorage.setItem("user", JSON.stringify(data[0]));
+        toast.success("Успешный вход ✅");
+        router.push("/news");
+      } else {
+        toast.error("Неверный телефон или пароль❌");
+      }
+    } catch (error) {
+      toast.error("Ошибка сервера");
+    } finally {
+      setLoading(false);
     }
   };
-
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
@@ -73,19 +83,27 @@ export default function Page() {
               {showPassword ? <EyeOff /> : <Eye />}
             </span>
           </div>
-          {error && (
-            <p className="text-red-500 text-sm text-center">{error}</p>
-          )}
-          <Link href={'/forgotPassword'}>
+          
             <button className="text-sm text-orange-500 cursor-pointer hover:underline mb-4">
               Забыли пароль?
             </button>
-          </Link>
           <button
             type="submit"
-            className="w-full bg-orange-500 text-white rounded-full py-2 font-medium hover:bg-orange-600 transition"
+            disabled={loading}
+            className={`w-full rounded-full py-2 font-medium transition flex items-center justify-center gap-2
+              ${loading
+                ? "bg-orange-400 cursor-not-allowed"
+                : "bg-orange-500 hover:bg-orange-600 text-white"}
+              `}
           >
-            Войти
+            {loading ? (
+              <>
+                <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                Вход...
+              </>
+            ) : (
+              "Войти"
+            )}
           </button>
         </form>
       </div>

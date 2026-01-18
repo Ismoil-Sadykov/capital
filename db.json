@@ -1,42 +1,42 @@
 {
   "news": [
     {
-      "id": 1,
+      "id": "1",
       "date": "01.22.2024",
       "title": "Title",
       "description": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
       "image": "/images/Image (5).png"
     },
     {
-      "id": 2,
+      "id": "2",
       "date": "01.12.2024",
       "title": "Title",
       "description": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
       "image": "/images/Image (6).png"
     },
     {
-      "id": 3,
+      "id": "3",
       "date": "01.12.2024",
       "title": "Title",
       "description": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
       "image": "/images/Image (7).png"
     },
     {
-      "id": 4,
+      "id": "4",
       "date": "01.12.2024",
       "title": "Title",
       "description": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
       "image": "/images/Image (8).png"
     },
     {
-      "id": 5,
+      "id": "5",
       "date": "01.12.2024",
       "title": "Title",
       "description": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
       "image": "/images/Image (9).png"
     },
     {
-      "id": 6,
+      "id": "6",
       "date": "01.12.2024",
       "title": "Title",
       "description": "Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse.",
@@ -45,7 +45,7 @@
   ],
   "vacancies": [
     {
-      "id": 1,
+      "id": "1",
       "experience": "Опыт от 1 года",
       "city": "Душанбе",
       "title": "Торговый представитель",
@@ -53,7 +53,7 @@
       "isHidden": false
     },
     {
-      "id": 2,
+      "id": "2",
       "experience": "Опыт от 2 лет",
       "city": "Худжанд",
       "title": "Менеджер по продажам",
@@ -61,7 +61,7 @@
       "isHidden": false
     },
     {
-      "id": 3,
+      "id": "3",
       "experience": "Без опыта",
       "city": "Душанбе",
       "title": "Оператор call-центра",
@@ -69,7 +69,7 @@
       "isHidden": false
     },
     {
-      "id": 4,
+      "id": "4",
       "experience": "Опыт от 3 лет",
       "city": "Куляб",
       "title": "Региональный менеджер",
@@ -77,7 +77,7 @@
       "isHidden": false
     },
     {
-      "id": 5,
+      "id": "5",
       "experience": "Опыт от 1 года",
       "city": "Бохтар",
       "title": "Мерчандайзер",
@@ -85,7 +85,7 @@
       "isHidden": false
     },
     {
-      "id": 6,
+      "id": "6",
       "experience": "Опыт от 2 лет",
       "city": "Душанбе",
       "title": "Супервайзер",
@@ -93,7 +93,7 @@
       "isHidden": false
     },
     {
-      "id": 7,
+      "id": "7",
       "experience": "Без опыта",
       "city": "Хорог",
       "title": "Стажёр",
@@ -101,7 +101,7 @@
       "isHidden": false
     },
     {
-      "id": 8,
+      "id": "8",
       "experience": "Опыт от 5 лет",
       "city": "Душанбе",
       "title": "Коммерческий директор",
@@ -109,7 +109,7 @@
       "isHidden": false
     },
     {
-      "id": 9,
+      "id": "9",
       "experience": "Опыт от 1 года",
       "city": "Турсунзаде",
       "title": "Торговый агент",
@@ -119,7 +119,7 @@
   ],
   "partnerApplications": [
     {
-      "id": 1,
+      "id": "1",
       "fullName": "Аличон Забири",
       "phone": "88888 0101",
       "email": "example@gmail.com",
@@ -128,7 +128,7 @@
       "message": "Предложение по партнёрству"
     },
     {
-      "id": 2,
+      "id": "2",
       "fullName": "Azim Sultonov",
       "phone": "98888 010",
       "email": "sadykov@gmail.com",
@@ -137,7 +137,7 @@
       "message": "Предложение по партнёрству"
     },
     {
-      "id": 3,
+      "id": "3",
       "fullName": "Abubakar Rahmonov",
       "phone": "907 56 34 21",
       "email": "shoev@gmail.com",
@@ -148,7 +148,7 @@
   ],
   "vacancyApplications": [
     {
-      "id": 1,
+      "id": "1",
       "fullName": "Muhsin Ahmadov",
       "phone": "000 123 4567",
       "email": "muhsininyo@gmail.com",
@@ -157,7 +157,7 @@
       "message": "Отклик на вакансию"
     },
     {
-      "id": 2,
+      "id": "2",
       "fullName": "Jafar Gurbanov",
       "phone": "905 123 4567",
       "email": "jafaruko@gmail.com",
@@ -166,7 +166,7 @@
       "message": "Отклик на вакансию"
     },
     {
-      "id": 3,
+      "id": "3",
       "fullName": "Hoshim Ismoilov",
       "phone": "909 123 4567",
       "email": "hoshim@gmail.com",
@@ -177,7 +177,7 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "password": "123456",
       "phoneNumber": "555520270"
     }

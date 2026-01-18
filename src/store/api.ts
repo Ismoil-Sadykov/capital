@@ -7,31 +7,53 @@ export const api = createApi({
   baseQuery: axiosBaseQuery({
     baseUrl: "http://localhost:3001",
   }),
+  tagTypes: ["News", "Vacancies"],
   endpoints: (builder) => ({
     getPosts: builder.query<News[], void>({
       query: () => ({
         url: "/news",
         method: "GET",
       }),
+      providesTags: ["News"],
     }),
-
     getVacancies: builder.query<Vacancy[], void>({
       query: () => ({
         url: "/vacancies",
         method: "GET",
       }),
+      providesTags: ["Vacancies"],
     }),
-
     getPartnerApplications: builder.query<Application[], void>({
       query: () => ({
         url: "/partnerApplications",
       }),
     }),
-
     getVacancyApplications: builder.query<Application[], void>({
       query: () => ({
         url: "/vacancyApplications",
       }),
+    }),
+    addNews: builder.mutation<News, Partial<News>>({
+      query: (body) => ({
+        url: "/news",
+        method: "POST",
+        data: body,
+      }),
+      invalidatesTags: ["News"],
+    }),
+    deleteNews: builder.mutation<void, number>({
+      query: (id) => ({
+        url: `/news/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["News"],
+    }),
+    deleteVacancy: builder.mutation<void, number>({
+      query: (id) => ({
+        url: `/vacancies/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Vacancies"],
     }),
   }),
 });
@@ -41,4 +63,7 @@ export const {
   useGetVacanciesQuery,
   useGetPartnerApplicationsQuery,
   useGetVacancyApplicationsQuery,
+  useAddNewsMutation,
+  useDeleteNewsMutation,
+  useDeleteVacancyMutation,
 } = api;
