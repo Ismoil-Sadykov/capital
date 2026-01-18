@@ -1,7 +1,21 @@
+'use client'
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import News from '@/src/components/News';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
 
-export default function page() {
+export default function Page() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+      router.replace("/");
+    }
+  }, [router]);
+
   return (
     <div className="p-5">
       <div className='flex justify-between items-center mb-[36px]'>
@@ -11,7 +25,9 @@ export default function page() {
           Добавить
         </button>
       </div>
+
       <div className="w-[100px] h-[4px] bg-[#FFA900] mb-[28px]" />
+
       <div>
         <News />
       </div>
