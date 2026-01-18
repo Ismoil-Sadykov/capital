@@ -7,6 +7,8 @@ import { Avatar, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } fr
 import { useState } from "react";
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { useRouter } from "next/navigation";
+
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -17,6 +19,15 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    handleClose();
+    router.push("/");
+  };
+
 
   return (
     <header className="w-full border-b border-gray-200">
@@ -100,9 +111,9 @@ export default function Header() {
                 <Avatar /> My account
               </MenuItem>
               <Divider />
-              <MenuItem onClick={handleClose}>
+              <MenuItem onClick={handleLogout}>
                 <ListItemIcon>
-                  <LogoutIcon color="error"/>
+                  <LogoutIcon color="error" />
                 </ListItemIcon>
                 Logout
               </MenuItem>
