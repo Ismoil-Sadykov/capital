@@ -11,7 +11,7 @@ export default function News() {
     const { data, isLoading } = useGetPostsQuery()
     const [deleteNews] = useDeleteNewsMutation();
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async (id: string) => {
         if (!confirm("Вы уверены, что хотите удалить новость?")) return;
 
         try {

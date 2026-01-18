@@ -41,14 +41,14 @@ export const api = createApi({
       }),
       invalidatesTags: ["News"],
     }),
-    deleteNews: builder.mutation<void, number>({
+    deleteNews: builder.mutation<void, string>({
       query: (id) => ({
         url: `/news/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["News"],
     }),
-    deleteVacancy: builder.mutation<void, number>({
+    deleteVacancy: builder.mutation<void, string>({
       query: (id) => ({
         url: `/vacancies/${id}`,
         method: "DELETE",

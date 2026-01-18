@@ -8,7 +8,7 @@ export default function Vacancies() {
     const { data, isLoading } = useGetVacanciesQuery()
     const [deleteVacancy] = useDeleteVacancyMutation();
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async (id: string) => {
         if (!confirm("Вы уверены, что хотите удалить вакансию?")) return;
 
         try {
