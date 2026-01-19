@@ -5,6 +5,7 @@ import { useDeleteNewsMutation, useGetPostsQuery } from "../store/api"
 import { EyeOff, Newspaper, Pencil, Trash2 } from "lucide-react"
 import { PostCardSkeleton } from "./Loading"
 import toast from "react-hot-toast"
+import Link from "next/link"
 
 
 export default function News() {
@@ -36,12 +37,14 @@ export default function News() {
                         return (
                             <div className="w-[360px] rounded-2xl bg-white shadow-md overflow-hidden mb-7" key={user.id}>
                                 <div className="relative h-[200px] w-full">
-                                    <Image
-                                        src={user.image}
-                                        alt={user.title}
-                                        fill
-                                        className="object-cover"
-                                    />
+                                    {user.image && (
+                                        <Image
+                                            src={user.image}
+                                            alt={user.title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    )}
                                     <div className="absolute top-3 left-3 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-sm font-medium">
                                         <Newspaper />
                                         {user.date}
@@ -62,8 +65,10 @@ export default function News() {
                                                 className="cursor-pointer h-9 w-9 rounded-full border flex items-center justify-center text-gray-500">
                                                 <Trash2 size={18} />
                                             </button>
-                                            <button className="h-9 w-9 rounded-full border flex items-center justify-center text-orange-500">
-                                                <Pencil size={18} />
+                                            <button className="cursor-pointer h-9 w-9 rounded-full border flex items-center justify-center text-orange-500">
+                                                <Link href={`/news/${user.id}`}>
+                                                    <Pencil size={18} />
+                                                </Link>
                                             </button>
                                             <button className="h-9 w-9 rounded-full border flex items-center justify-center text-orange-500">
                                                 <EyeOff size={18} />

@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { Vacancy } from "../app/types/type"
 import { useDeleteVacancyMutation, useGetVacanciesQuery } from "../store/api"
 import { EyeOff, MapPin, Pencil, Trash2 } from "lucide-react";
+import Link from "next/link";
 
 export default function Vacancies() {
     const { data, isLoading } = useGetVacanciesQuery()
@@ -54,9 +55,11 @@ export default function Vacancies() {
                                     className="cursor-pointer h-9 w-9 rounded-full border flex items-center justify-center text-gray-400">
                                     <Trash2 size={18} />
                                 </button>
-                                <button className="h-9 w-9 rounded-full border flex items-center justify-center text-orange-500">
-                                    <Pencil size={18} />
-                                </button>
+                                <Link href={`/vacancy/${item.id}`}>
+                                    <button className="cursor-pointer h-9 w-9 rounded-full border flex items-center justify-center text-orange-500">
+                                        <Pencil size={18} />
+                                    </button>
+                                </Link>
                                 <button className="h-9 w-9 rounded-full border flex items-center justify-center text-orange-500">
                                     <EyeOff size={18} />
                                 </button>
